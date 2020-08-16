@@ -1,0 +1,93 @@
+/* ----------------------------------------------------- */
+/*	Wheatevo - Twenty Twenty Editor Styles — Block Editor
+/* ----------------------------------------------------- */
+
+#site-header {
+  background: left 0px top 0px repeat-x url("assets/images/header-footer-background.jpg");
+}
+
+#site-footer {
+  background: left 0px bottom 0px repeat-x url("assets/images/header-footer-background.jpg");
+}
+
+#site-footer .to-the-top {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius   : 5px;
+  padding         : 1em;
+}
+
+.powered-by-wordpress {
+  display: none;
+}
+
+@font-face {
+  font-family : "Raleway";
+  font-weight : 100 900;
+  /* stylelint-disable-line font-weight-notation */
+  font-style  : normal;
+  font-display: swap;
+  src         : url(../fonts/Raleway.ttf) format("truetype");
+}
+
+@font-face {
+  font-family : "Raleway";
+  font-weight : 100 900;
+  /* stylelint-disable-line font-weight-notation */
+  font-style  : italic;
+  font-display: swap;
+  src         : url(../fonts/Raleway-Italic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family : "Roboto";
+  font-weight : 100 900;
+  /* stylelint-disable-line font-weight-notation */
+  font-style  : normal;
+  font-display: swap;
+  src         : url(../fonts/Roboto.ttf) format("truetype");
+}
+
+@font-face {
+  font-family : "Roboto";
+  font-weight : 100 900;
+  /* stylelint-disable-line font-weight-notation */
+  font-style  : italic;
+  font-display: swap;
+  src         : url(../fonts/Roboto-Italic.ttf) format("truetype");
+}
+
+/* Heading font */
+.editor-post-title__block .editor-post-title__input,
+h1.wp-block,
+h2.wp-block,
+h3.wp-block,
+h4.wp-block,
+h5.wp-block,
+h6.wp-block,
+p.has-drop-cap:not(:focus)::first-letter {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+}
+
+/* Body (content) font */
+.wp-block,
+.wp-block p,
+.wp-block ol,
+.wp-block ul,
+.wp-block dl,
+.wp-block dt,
+.wp-block cite,
+.wp-block figcaption {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+/* Drop cap styling */
+p.has-drop-cap:not(:focus)::first-letter {
+  font-size  : 3.8em;
+}
+
+/* Wider editing space */
+.wp-block {
+  max-width: 80rem;
+}

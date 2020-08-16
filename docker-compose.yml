@@ -1,23 +1,40 @@
 version: '3.7'
 
 services:
-   db:
-     image: mysql:5.7
-     volumes:
-       - db_data:/var/lib/mysql
-     restart: always
-     env_file: .env
+  db:
+    image: mysql/mysql-server:latest
+    command: '--default-authentication-plugin=mysql_native_password'
+    volumes:
+      - db-data:/var/lib/mysql
+    restart: unless-stopped
+    env_file: .env
 
-   wordpress:
-     depends_on:
-       - db
-     image: wordpress:latest
-     ports:
-       - "8000:80"
-     volumes:
-       - ./themes/wheatevo:/var/www/html/wp-content/themes/wheatevo
-     restart: always
-     env_file: .env
+  wordpress:
+    depends_on:
+      - db
+    image: wheatevo/wordpress:latest
+    volumes:
+      - wordpress:/var/www/html
+      - root:/root
+      - ./themes/twentytwenty-wheatevo:/var/www/html/wp-content/themes/twentytwenty-wheatevo
+    restart: unless-stopped
+    env_file: .env
+  
+  web:
+    depends_on:
+      - wordpress
+    image: nginx:stable-alpine
+    restart: unless-stopped
+    ports:
+      - "${HTTPS_PORT:-8443}:443"
+    volumes:
+      - wordpress:/var/www/html
+      - ./themes/twentytwenty-wheatevo:/var/www/html/wp-content/themes/twentytwenty-wheatevo
+      - ${CERT_DIR:-/opt/web/certs}:/etc/nginx/certs
+      - ./nginx/conf.d/nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ./nginx/mime.types:/etc/nginx/mime.types
 
 volumes:
-    db_data: {}
+    db-data:
+    wordpress:
+    root:

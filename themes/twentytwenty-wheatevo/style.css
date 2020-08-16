@@ -1,0 +1,146 @@
+/*
+ Theme Name:   Twenty Twenty - Wheatevo
+ Theme URI:    http://wheatevo.com/twenty-twenty-wheatevo/
+ Description:  Twenty Twenty - Wheatevo Child Theme
+ Author:       Matthew Newell
+ Author URI:   http://wheatevo.com
+ Template:     twentytwenty
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  twentytwentywheatevo
+*/
+
+#site-header {
+  background: url("assets/images/header-footer-background-top.jpg");
+}
+
+#site-footer {
+  background: url("assets/images/header-footer-background-bottom.jpg");
+}
+
+#site-header, #site-footer {
+  background-size: cover;
+  background-position: left;
+}
+
+#site-footer .to-the-top, .site-title {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius   : 5px;
+  padding: 1em;
+}
+
+.powered-by-wordpress {
+  display: none;
+}
+
+@font-face {
+  font-family : "Raleway";
+  font-weight : 100 900;
+  /* stylelint-disable-line font-weight-notation */
+  font-style  : normal;
+  font-display: swap;
+  src         : url(assets/fonts/Raleway.ttf) format("truetype");
+}
+
+@font-face {
+  font-family : "Raleway";
+  font-weight : 100 900;
+  /* stylelint-disable-line font-weight-notation */
+  font-style  : italic;
+  font-display: swap;
+  src         : url(assets/fonts/Raleway-Italic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family : "Roboto";
+  font-weight : 100 900;
+  /* stylelint-disable-line font-weight-notation */
+  font-style  : normal;
+  font-display: swap;
+  src         : url(assets/fonts/Roboto.ttf) format("truetype");
+}
+
+@font-face {
+  font-family : "Roboto";
+  font-weight : 100 900;
+  /* stylelint-disable-line font-weight-notation */
+  font-style  : italic;
+  font-display: swap;
+  src         : url(assets/fonts/Roboto-Italic.ttf) format("truetype");
+}
+
+.editor-post-title__block .editor-post-title__input,
+.editor-styles-wrapper .wp-block h1,
+.editor-styles-wrapper .wp-block h2,
+.editor-styles-wrapper .wp-block h3,
+.editor-styles-wrapper .wp-block h4,
+.editor-styles-wrapper .wp-block h5,
+.editor-styles-wrapper .wp-block h6,
+.editor-styles-wrapper .has-drop-cap:not(:focus)::first-letter,
+.editor-styles-wrapper cite,
+.editor-styles-wrapper figcaption,
+.editor-styles-wrapper .wp-caption-text {
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Heading font */
+.header-footer-group,
+.entry-title,
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6,
+p.has-drop-cap:not(:focus)::first-letter {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+}
+
+/* Body (content) font */
+body,
+.child-posts,
+.entry-content,
+.entry-content p,
+.entry-content ol,
+.entry-content ul,
+.entry-content dl,
+.entry-content dt,
+.entry-content cite,
+.entry-content figcaption,
+.entry-content .wp-caption-text,
+.entry-content .wp-block-archives,
+.entry-content .wp-block-categories,
+.entry-content .wp-block-latest-posts,
+.entry-content .wp-block-latest-comments,
+.entry-content .wp-block-cover-image p,
+.entry-content .wp-block-pullquote {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+/* Input font */
+input,
+textarea,
+button,
+.button,
+.faux-button,
+.faux-button.more-link,
+.wp-block-button__link,
+.wp-block-file__button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+
+/* Drop cap styling */
+p.has-drop-cap:not(:focus)::first-letter {
+  font-size: 3.8em;
+}
+
+/* Wider posts */
+.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+  max-width: 80rem;
+}
