@@ -34,6 +34,7 @@ services:
       - ./themes/twentytwenty-wheatevo:/var/www/html/wp-content/themes/twentytwenty-wheatevo
       - ${CERT_DIR:-/opt/web/certs}:/etc/nginx/certs
       - ./nginx/conf.d/nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ./nginx/conf.d/redirect.conf:/etc/nginx/conf.d/redirect.conf
       - ./nginx/mime.types:/etc/nginx/mime.types
 
 volumes:
