@@ -12,6 +12,8 @@ services:
   wordpress:
     depends_on:
       - db
+    build:
+      context: ./wordpress
     image: wheatevo/wordpress:latest
     volumes:
       - wordpress:/var/www/html
