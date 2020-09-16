@@ -6,7 +6,7 @@ WP_USER="www-data"
 # Set default configuration
 WORDPRESS_SITE_THEME=${WORDPRESS_SITE_THEME:-twentytwenty-wheatevo}
 WORDPRESS_SITE_TAGLINE=${WORDPRESS_SITE_TAGLINE:-variable thoughts}
-WORDPRESS_SITE_ICON=${WORDPRESS_SITE_ICON:-/var/www/html/wp-content/themes/twentytwenty-wheatevo/assets/images/icon.jpg}
+WORDPRESS_SITE_ICON=${WORDPRESS_SITE_ICON:-/var/www/html/wp-content/themes/twentytwenty-wheatevo/assets/images/icon.png}
 
 # Basic wrapper to run all wp-cli commands as the wordpress user
 # Takes one argument containing the comment to execute in wp as the WP_USER (www-data)
