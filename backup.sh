@@ -9,6 +9,7 @@
 echo "Starting backup at $(date)"
 
 backup_file="wheatevo-wp-$(date '+%Y-%m-%d').tar.gz"
+days_to_keep="90"
 
 # Create all necessary backup directories and clean any existing files
 echo "Creating backup staging directories..."
@@ -34,7 +35,7 @@ rm -f backup/staging/db/*
 rm -rf backup/staging/wordpress/*
 
 echo "Deleting old backups..."
-find backup -type f -name '*.tar.gz' -mtime +30 -exec rm {} \;
+find backup -type f -name '*.tar.gz' -mtime +${days_to_keep} -exec rm {} \;
 
 echo "Backup Complete"
 echo ""
