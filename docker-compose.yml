@@ -6,6 +6,7 @@ services:
     command: '--default-authentication-plugin=mysql_native_password'
     volumes:
       - db-data:/var/lib/mysql
+      - ./backup/staging/db:/var/backup
     restart: unless-stopped
     env_file: .env
 
@@ -19,6 +20,7 @@ services:
       - wordpress:/var/www/html
       - root:/root
       - ./themes/twentytwenty-wheatevo:/var/www/html/wp-content/themes/twentytwenty-wheatevo
+      - ./backup/staging/wordpress:/var/backup
     restart: unless-stopped
     env_file: .env
   
