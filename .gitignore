@@ -1,3 +1,4 @@
 .env
 certs
 backup
+.wp_enc_key

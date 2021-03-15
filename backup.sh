@@ -8,8 +8,16 @@
 
 echo "Starting backup at $(date)"
 
+encrypt=0
 backup_file="wheatevo-wp-$(date '+%Y-%m-%d').tar.gz"
 days_to_keep="90"
+
+if [[ -f .wp_enc_key ]];then
+  echo "Encryption key found, going to encrypt the backup..."
+  encrypt=1
+else
+  echo "Encryption key not found, skipping backup encryption..."
+fi
 
 # Create all necessary backup directories and clean any existing files
 echo "Creating backup staging directories..."
@@ -26,7 +34,17 @@ docker-compose exec -T wordpress sh -c 'cp /var/www/html/.htaccess /var/backup/;
 
 echo "Creating backup archive at ${backup_file}..."
 cd backup/staging
-tar -zcvf "${backup_file}" * > /dev/null 2>&1
+
+# If a key file exists, use it
+
+if [[ $encrypt -eq 1 ]];then
+  # decrypt and restore with:
+  # openssl enc -d -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -salt -pass file:.wp_enc_key -in ${backup_file} | tar -zxvf - -C restore_dir
+  tar -zcvf - * | openssl enc -e -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -salt -pass file:../../.wp_enc_key -out "${backup_file}"
+else
+  tar -zcvf "${backup_file}" *
+fi
+
 mv *.tar.gz ../
 cd ../..
 
